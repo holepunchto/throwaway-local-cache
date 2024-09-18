@@ -102,7 +102,6 @@ module.exports = class LocalCacheStorage {
   async _flush () {
     if (!this.dirty) return
     const data = JSON.stringify(this.db)
-    this.db = null
     this.dirty = false
     await fs.promises.writeFile(path.join(this.folder, 'db.json.tmp'), data)
     await fs.promises.rename(path.join(this.folder, 'db.json.tmp'), path.join(this.folder, 'db.json'))
