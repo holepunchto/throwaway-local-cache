@@ -1,17 +1,24 @@
-# local-cache-storage
-
-WIP - nothing to see here
+# throwaway-local-cache
 
 ```
-npm install local-cache-storage
+npm install throwaway-cache-storage
 ```
 
 ## Usage
 
 ``` js
-const local-cache-storage = require('local-cache-storage')
+const Cache = require('throwaway-cache-storage')
+
+const c = new Cache('./cache') // pass the local folder to use
+
+await c.get('key') // get an entry
+
+c.queuePut('key', { value: true }) // queue a put, will be persisted later
+c.queueDelete('key') // queue a deletion, will be persisted later
+
+await c.flush() // force persist it
 ```
 
 ## License
 
-MIT
+Apache-2.0
