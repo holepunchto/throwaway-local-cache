@@ -1,7 +1,7 @@
 # throwaway-local-cache
 
 ```
-npm install throwaway-cache-storage
+npm install throwaway-local-cache
 ```
 
 ## Usage
