@@ -93,9 +93,9 @@ module.exports = class LocalCacheStorage {
     if (this.flushing) return this.flushing
     this.flushing = this._flush()
     try {
-      await this._flushing
+      await this.flushing
     } finally {
-      this._flushing = null
+      this.flushing = null
     }
   }
 
