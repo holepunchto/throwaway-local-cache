@@ -1,0 +1,22 @@
+{
+  "name": "local-cache-storage",
+  "version": "0.0.0",
+  "description": "Maintain a fast local cache when persistance isnt a 100% requirement",
+  "main": "index.js",
+  "devDependencies": {
+    "standard": "^17.1.2"
+  },
+  "scripts": {
+    "test": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/holepunchto/local-cache-storage.git"
+  },
+  "author": "Holepunch Inc",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/holepunchto/local-cache-storage/issues"
+  },
+  "homepage": "https://github.com/holepunchto/local-cache-storage"
+}
