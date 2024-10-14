@@ -1,6 +1,6 @@
 {
   "name": "throwaway-local-cache",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Maintain a fast local cache when persistance isnt a 100% requirement",
   "main": "index.js",
   "devDependencies": {
