@@ -40,6 +40,11 @@ module.exports = class LocalCacheStorage {
     return this.db[key] || null
   }
 
+  async getAllKeys () {
+    while (!this.db) await this.open()
+    return this.db ? Object.keys(this.db) : []
+  }
+
   queueFlush () {
     if (this.timeout) clearTimeout(this.timeout)
     this.timeout = setTimeout(this.flushBound, FLUSH_TIMEOUT)
