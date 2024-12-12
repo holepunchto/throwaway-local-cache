@@ -3,7 +3,7 @@ const path = require('path')
 
 const FLUSH_TIMEOUT = 10_000
 
-module.exports = class LocalCacheStorage {
+module.exports = class ThrowawayLocalCache {
   constructor (folder) {
     this.db = null
     this.folder = folder

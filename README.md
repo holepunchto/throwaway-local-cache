@@ -7,7 +7,7 @@ npm install throwaway-local-cache
 ## Usage
 
 ``` js
-const Cache = require('throwaway-cache-storage')
+const Cache = require('throwaway-local-cache')
 
 const c = new Cache('./cache') // pass the local folder to use
 
