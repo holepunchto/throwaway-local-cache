@@ -82,6 +82,20 @@ module.exports = class ThrowawayLocalCache {
     this.queueFlush()
   }
 
+  async queueDeleteAll () {
+    if (!this.db) {
+      try {
+        await this.open()
+      } catch {
+        return // runs in bg
+      }
+    }
+
+    this.db = {}
+    this.dirty = true
+    this.queueFlush()
+  }
+
   async _openAndQueueDelete (key) {
     try {
       await this.open()
