@@ -1,10 +1,7 @@
-const fs = require('fs')
-const path = require('path')
-
 const FLUSH_TIMEOUT = 10_000
 
 module.exports = class ThrowawayLocalCache {
-  constructor (folder) {
+  constructor (folder, { load, save }) {
     this.db = null
     this.folder = folder
     this.dirty = false
@@ -12,6 +9,8 @@ module.exports = class ThrowawayLocalCache {
     this.opening = null
     this.flushing = null
     this.flushBound = this.flush.bind(this)
+    this._save = save
+    this._load = load
   }
 
   open () {
@@ -21,18 +20,7 @@ module.exports = class ThrowawayLocalCache {
   }
 
   async _open () {
-    let existing = null
-
-    try {
-      const data = await fs.promises.readFile(path.join(this.folder, 'db.json'), 'utf-8')
-      existing = JSON.parse(data)
-    } catch {}
-
-    if (existing === null) {
-      await fs.promises.mkdir(this.folder, { recursive: true })
-    }
-
-    this.db = existing || {}
+    this.db = await this._load(this.folder) || {}
   }
 
   async get (key) {
@@ -122,7 +110,6 @@ module.exports = class ThrowawayLocalCache {
     if (!this.dirty) return
     const data = JSON.stringify(this.db)
     this.dirty = false
-    await fs.promises.writeFile(path.join(this.folder, 'db.json.tmp'), data)
-    await fs.promises.rename(path.join(this.folder, 'db.json.tmp'), path.join(this.folder, 'db.json'))
+    await this._save(this.folder, data)
   }
 }
