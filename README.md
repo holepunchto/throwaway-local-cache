@@ -7,7 +7,14 @@ npm install throwaway-local-cache
 ## Usage
 
 ``` js
-const Cache = require('throwaway-local-cache')
+const c = new Cache('./cache', {
+  async load (folder) {
+    // return the previously saved object, or null if there is nothing yet
+  },
+  async save (folder, data) {
+    // persist the serialized string
+  }
+})
 
 const c = new Cache('./cache') // pass the local folder to use
 
