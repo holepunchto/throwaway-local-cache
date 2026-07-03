@@ -4,10 +4,11 @@
   "description": "Maintain a fast local cache when persistance isnt a 100% requirement",
   "main": "index.js",
   "devDependencies": {
+    "brittle": "^4.0.2",
     "standard": "^17.1.2"
   },
   "scripts": {
-    "test": "standard"
+    "test": "standard && node test/index.test.js"
   },
   "repository": {
     "type": "git",
@@ -18,19 +19,5 @@
   "bugs": {
     "url": "https://github.com/holepunchto/throwaway-local-cache/issues"
   },
-  "homepage": "https://github.com/holepunchto/throwaway-local-cache",
-  "dependencies": {
-    "bare-fs": "^4.1.2",
-    "bare-path": "^3.0.0"
-  },
-  "imports": {
-    "fs": {
-      "bare": "bare-fs",
-      "default": "fs"
-    },
-    "path": {
-      "bare": "bare-path",
-      "default": "path"
-    }
-  }
+  "homepage": "https://github.com/holepunchto/throwaway-local-cache"
 }
