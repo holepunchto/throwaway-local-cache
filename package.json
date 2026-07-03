@@ -4,10 +4,11 @@
   "description": "Maintain a fast local cache when persistance isnt a 100% requirement",
   "main": "index.js",
   "devDependencies": {
+    "brittle": "^4.0.2",
     "standard": "^17.1.2"
   },
   "scripts": {
-    "test": "standard"
+    "test": "standard && node test/index.test.js"
   },
   "repository": {
     "type": "git",
