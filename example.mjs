@@ -14,8 +14,7 @@ const c = new Cache('cache.json', {
   }
 })
 
-const value = await c.get('hello')
-
+await c.get('hello')
 c.queuePut('hello', 'world2')
 
 await c.flush() // force persist it now
